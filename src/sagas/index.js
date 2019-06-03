@@ -14,6 +14,17 @@ function fetchDog() {
         method: "get",
         url: "https://dog.ceo/api/breeds/image/random"
     });
+
+    /**
+     * Instead of 
+     * const fetchDog = () => {
+     * return fetch('https://dog.ceo/api/breeds/image/random')
+     * };
+     * 
+     */
+
+
+
 }
 
 // worker saga: makes the api call when watcher saga sees the action
