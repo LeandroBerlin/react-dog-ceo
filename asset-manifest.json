@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-dog-ceo/static/css/main.98c73720.chunk.css",
+    "main.js": "/react-dog-ceo/static/js/main.03551f41.chunk.js",
+    "main.js.map": "/react-dog-ceo/static/js/main.03551f41.chunk.js.map",
+    "runtime~main.js": "/react-dog-ceo/static/js/runtime~main.7cb123e1.js",
+    "runtime~main.js.map": "/react-dog-ceo/static/js/runtime~main.7cb123e1.js.map",
+    "static/js/2.f0801e53.chunk.js": "/react-dog-ceo/static/js/2.f0801e53.chunk.js",
+    "static/js/2.f0801e53.chunk.js.map": "/react-dog-ceo/static/js/2.f0801e53.chunk.js.map",
+    "index.html": "/react-dog-ceo/index.html",
+    "precache-manifest.405d5ee506c99ab9ed6ceac14d2a8e73.js": "/react-dog-ceo/precache-manifest.405d5ee506c99ab9ed6ceac14d2a8e73.js",
+    "service-worker.js": "/react-dog-ceo/service-worker.js",
+    "static/css/main.98c73720.chunk.css.map": "/react-dog-ceo/static/css/main.98c73720.chunk.css.map",
+    "static/media/logo.svg": "/react-dog-ceo/static/media/logo.5d5d9eef.svg"
+  }
+}
