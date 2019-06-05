@@ -35,7 +35,7 @@ Axios is a Promise based HTTP client for the browser and node.js (https://github
 ## Create the folder structure
 
 ```
-- react-redux-saga-dogs
+- react-dog-ceo
   - public
   - src
     - actions
