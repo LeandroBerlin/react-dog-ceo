@@ -122,11 +122,12 @@ Create a new file `sagas/index.js`
 
 // import saga
 import { takeLatest, call, put } from "redux-saga/effects";
+import { API_CALL_REQUEST, API_CALL_SUCCESS, API_CALL_FAILURE } from '../actions/actionTypes'
 import axios from "axios";
 
 // watcher saga: watches for actions dispatched to the store, starts worker saga
 export function* watcherSaga() {
-    yield takeLatest("API_CALL_REQUEST", workerSaga);
+    yield takeLatest(API_CALL_REQUEST, workerSaga);
 }
 
 // function that makes the api request and returns a Promise for response
@@ -144,11 +145,11 @@ function* workerSaga() {
         const dog = response.data.message;
 
         // dispatch a success action to the store with the new dog
-        yield put({ type: "API_CALL_SUCCESS", dog });
+        yield put({ type: API_CALL_SUCCESS, dog });
 
     } catch (error) {
         // dispatch a failure action to the store with the error
-        yield put({ type: "API_CALL_FAILURE", error });
+        yield put({ type: API_CALL_FAILURE, error });
     }
 }
 
@@ -256,6 +257,7 @@ import "./App.css";
 
 // import React bindings for Redux
 import { connect } from "react-redux";
+import { API_CALL_REQUEST} from '../actions/actionTypes'
 
 class App extends Component {
   render() {
@@ -300,7 +302,7 @@ const mapStateToProps = state => {
 // Dispatching actions with mapDispatchToProps
 const mapDispatchToProps = dispatch => {
   return {
-    onRequestDog: () => dispatch({ type: "API_CALL_REQUEST" })
+    onRequestDog: () => dispatch({ type: API_CALL_REQUEST })
   };
 };
 
