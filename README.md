@@ -1,6 +1,6 @@
 
 
-We'll create a webapp using React, Redux and Saga as [middleware](https://redux.js.org/advanced/middleware). Our application will fetch a random image from the [Dogs API](https://dog.ceo/dog-api/) and display it into our React App using Redux & Saga.
+We'll create a webapp using React, Redux and Saga as middleware. The application will fetch image data from the Dogs API and store it to Redux using Saga.
 
 ## What is Redux-saga
 
@@ -9,15 +9,11 @@ We'll create a webapp using React, Redux and Saga as [middleware](https://redux.
 
 - a saga is like a separate thread in your application that's solely responsible for side effects (fetch APIs, write data to a file, etc)
 
-- saga uses an ES6 feature called [Generators](http://javascript.info/generators) to make those asynchronous flows easy to read, write and test. 
+- saga uses an ES6 feature called Generators to make those asynchronous flows easy to read, write and test. 
 
 ## Install packages
 
-First we create our React App as usual
-
-`npx create-react-app react-dog-ceo`  
-
-then we install Redux into your project
+Create your React App and then install Redux
 
 `npm i redux react-redux`
 
@@ -58,7 +54,10 @@ First, let's define some actions.
 
 Create a new file `actions/actionTypes.js`.
 
-The application will have 3 action: to start the request, if the request success or if it fails
+The application will have 3 action: 
+- to start the request  
+- if the request success  
+- if thr request fails
 
 ```jsx
 
@@ -96,9 +95,9 @@ export function reducer(state = initialState, action) {
         case API_CALL_REQUEST:
             return { ...state, fetching: true, error: null };
         case API_CALL_SUCCESS:
-            return { ...state, fetching: false, dog: action.dog };
+            return { ...state, fetching: false };
         case API_CALL_FAILURE:
-            return { ...state, fetching: false, dog: null, error: action.error };
+            return { ...state, fetching: false };
         default:
             return state;
     }
@@ -150,6 +149,18 @@ function* workerSaga() {
     }
 }
 
+```
+
+## Update your Reducer
+Update your reducer with the payloads of the success and failure actions
+
+```jsx
+...
+        case API_CALL_SUCCESS:
+            return { ...state, fetching: false, dog: action.dog };
+        case API_CALL_FAILURE:
+            return { ...state, fetching: false, dog: null, error: action.error };
+...
 ```
 
 
@@ -291,17 +302,7 @@ const mapDispatchToProps = dispatch => {
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 ```
 
-## Review
-
-- We created a React app  
-- We installed the required library: redux, react-redux and redux-saga  
-- We used Axios HTTP client  
-- We created our Redux actions and the reducer    
-- We created the Saga and finally the Store  
-- We refactor the `index.js` to publish the Provider  
-- We refactor the `src/App.js` to render the data from the store
-
 ## Extra
-- Inspect your application with ReduxDevTools
+- Inspect with ReduxDevTools
 - Install node-sass and bootstrap
 - Add rounded images
