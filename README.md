@@ -1,6 +1,6 @@
 
 
-We'll create a webapp using React, Redux and Saga as middleware. The application will fetch image data from the Dogs API and store it to Redux using Saga.
+We'll create a webapp using React, Redux and Saga as [middleware](https://redux.js.org/advanced/middleware). Our application will fetch a random image from the [Dogs API](https://dog.ceo/dog-api/) and display it into our React App using Redux & Saga.
 
 ## What is Redux-saga
 
@@ -9,11 +9,15 @@ We'll create a webapp using React, Redux and Saga as middleware. The application
 
 - a saga is like a separate thread in your application that's solely responsible for side effects (fetch APIs, write data to a file, etc)
 
-- saga uses an ES6 feature called Generators to make those asynchronous flows easy to read, write and test. 
+- saga uses an ES6 feature called [Generators](http://javascript.info/generators) to make those asynchronous flows easy to read, write and test. 
 
 ## Install packages
 
-Create your React App and then install Redux
+First we create our React App as usual
+
+`npx create-react-app react-dog-ceo`  
+
+then we install Redux into your project
 
 `npm i redux react-redux`
 
@@ -287,7 +291,17 @@ const mapDispatchToProps = dispatch => {
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 ```
 
+## Review
+
+- We created a React app  
+- We installed the required library: redux, react-redux and redux-saga  
+- We used Axios HTTP client  
+- We created our Redux actions and the reducer    
+- We created the Saga and finally the Store  
+- We refactor the `index.js` to publish the Provider  
+- We refactor the `src/App.js` to render the data from the store
+
 ## Extra
-- Inspect with ReduxDevTools
+- Inspect your application with ReduxDevTools
 - Install node-sass and bootstrap
 - Add rounded images
