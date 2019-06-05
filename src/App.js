@@ -4,6 +4,7 @@ import "./App.scss";
 
 // import React bindings for Redux
 import { connect } from "react-redux";
+import { API_CALL_REQUEST } from './actions/actionTypes'
 
 class App extends Component {
   render() {
@@ -49,7 +50,7 @@ const mapStateToProps = state => {
 // Dispatching actions with mapDispatchToProps
 const mapDispatchToProps = dispatch => {
   return {
-    onRequestDog: () => dispatch({ type: "API_CALL_REQUEST" })
+    onRequestDog: () => dispatch({ type: API_CALL_REQUEST })
   };
 };
 
