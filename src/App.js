@@ -26,10 +26,11 @@ class App extends Component {
           {fetching ? (
             <button className="btn btn-warning" disabled>Fetching...</button>
           ) : (
-              <button className="btn btn-primary" onClick={onRequestDog}>Request a Dog</button>
+              <button className="btn btn-primary" onClick={onRequestDog}>Request a dog picture</button>
             )}
 
           {error && <p style={{ color: "red" }}>Uh oh - something went wrong!</p>}
+          <p className="credits">This webapp is using the <a target="_blank" rel="noopener noreferrer" href="https://dog.ceo/dog-api/">Dog Ceo API</a></p>
         </header>
       </div>
     );
