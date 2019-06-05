@@ -31,7 +31,7 @@ Axios is a Promise based HTTP client for the browser and node.js (https://github
 ## Create the folder structure
 
 ```
-- react-dog-ceo
+- react-redux-saga-dogs
   - public
   - src
     - actions
@@ -193,10 +193,13 @@ const sagaMiddleware = createSagaMiddleware();
 const reduxDevTools =
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-// create a Redux store using the Reducer and connect the Saga middleware to the Redux store + DevTools
+// compose the middleware and ReduxDevTools
+const composed = compose(applyMiddleware(sagaMiddleware), reduxDevTools);
+
+// create a Redux store using the Reducer and connect the Saga middleware to the Redux store with DevTools enables
 export const store = createStore(
     reducer,
-    compose(applyMiddleware(sagaMiddleware), reduxDevTools)
+    composed
 );
 
 // run the watcher
