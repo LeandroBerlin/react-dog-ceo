@@ -16,15 +16,15 @@ Finished code is on [this branch](https://github.com/LeandroDCI/react-dog-ceo/tr
 
 ## Install packages
 
-Create your React App and then install Redux
+Create your React App and then install **Redux**
 
 `npm i redux react-redux`
 
-We can now install Saga
+We can now install **Redux-Saga**
 
 `npm i redux-saga`
 
-We will also use Axios
+We will also use **Axios** in this webapp
 
 `npm i axios`
 
@@ -109,12 +109,15 @@ export function reducer(state = initialState, action) {
 ```
 
 
-## Create Saga
+## Create ths Sagas
 
-In order to run our Saga, we need to:
+We create 2 Sagas: a watcher and a worker
 
-- create a Saga middleware
-- connect the Saga middleware to the Redux store
+- the watcher ("watcherSaga"): will watch for dispatched action ("API_CALL_REQUEST") and will start a worker every time the action is dispatched
+
+- the worker ("workerSaga"): will try to fetch the data from the API using Axios and creates an **Effect** description that instructs the middleware to dispatch an action ("API_CALL_SUCCESS" or "API_CALL_FAILURE")
+
+[Redux Saga Glossary](https://redux-saga.js.org/docs/Glossary.html)
 
 Create a new file `sagas/index.js`  
 
@@ -138,7 +141,7 @@ function fetchDog() {
     });
 }
 
-// worker saga: makes the api call when watcher saga sees the action
+// worker saga: makes the api call
 function* workerSaga() {
     try {
         const response = yield call(fetchDog);
@@ -176,6 +179,8 @@ A store holds the whole state tree of your application. The only way to change t
 - a store is not a class.  
 - it's just an object with a few methods on it.  
 - to create it, pass your root reducing function to createStore.  
+
+We'll also connect the Saga Middleware with Redux
 
 Create a new file `store/index.js`  
 
