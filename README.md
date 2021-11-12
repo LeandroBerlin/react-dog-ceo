@@ -2,8 +2,8 @@
 
 We'll create a webapp using React, Redux and Saga as middleware. The application will fetch image data from the Dogs API and store it to Redux using Saga.  
 
-Demo: https://leandrodci.github.io/react-dog-ceo/  
-Finished code is on [this branch](https://github.com/LeandroDCI/react-dog-ceo/tree/finished)
+Demo: https://leandroberlin.github.io/react-dog-ceo/  
+Finished code is on [this branch](https://github.com/LeandroBerlin/react-dog-ceo/tree/finished)
 
 ## What is Redux-saga
 
